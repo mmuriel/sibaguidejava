@@ -329,20 +329,43 @@ public class ChannelGraphic {
         g2.setColor(foregroundNumberCanales);
         // grafica el nœmero del canal
         int channelNum = Integer.parseInt(channel.getNumeroSintoniza());
-        if (channelNum <= 9){
-        	fitText(channel.getNumeroSintoniza(), g2,
-                (float) (47 - (justXChannelNumber * 2)), (float)(justXChannelNumber * 2),(float) (justYChannelNumber), fontTypeNumberChannel);
+        double chnNumberFloat = (double)(channelNum);
+        int chnNumberDecimales = (int)(chnNumberFloat % 100);
+        chnNumberFloat = chnNumberFloat / 100;
+        System.out.println(chnNumberFloat);
+        System.out.println(chnNumberDecimales);
+        //String chnNumberToPaint = Float.toString(chnNumberFloat);
+        String chnNumberToPaint;
+        
+        if (chnNumberDecimales == 0){
+        	chnNumberToPaint = ((int)(chnNumberFloat))+"";
+        }
+        else{
+        	chnNumberToPaint = Double.toString(chnNumberFloat);
+        }
+        
+        System.out.println(chnNumberToPaint);
+        //System.out.println(chnNumberDouble);
+        //if (channelNum <= 9){
+        if (chnNumberToPaint.length() == 1){
+        	//fitText(channel.getNumeroSintoniza(), g2,
+            //    (float) (47 - (justXChannelNumber * 2)), (float)(justXChannelNumber * 2),(float) (justYChannelNumber), fontTypeNumberChannel);
+        	System.out.println("Canal al tamaño grande");
+        	fitText(chnNumberToPaint, g2,(float) (47 - (justXChannelNumber * 2)), 
+        			(float)(justXChannelNumber * 2),(float) (justYChannelNumber), fontTypeNumberChannel);
         }	
-        else if (channelNum >= 100) {
+        else if (chnNumberToPaint.length() == 2) {
         	
-        	fontTypeNumberChannel = new Font(SIBAToolKit.applicationPreference("FONT_NUMBER_CHANNEL"), Font.BOLD, (Integer.parseInt(SIBAToolKit.applicationPreference("FONT_SIZE_NUMBER_CHANNEL")) - 3 ));
-        	fitText(channel.getNumeroSintoniza(), g2,
-                    (float) (47 - (justXChannelNumber * 1.05)), (float) (justXChannelNumber * 1.05),(float) (justYChannelNumber * 1.15), fontTypeNumberChannel);
+        	System.out.println("Canal al tamaño medio");
+        	fitText(chnNumberToPaint, g2,
+                    (float) (47 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber), fontTypeNumberChannel);
         }
         else {
         	
-        	fitText(channel.getNumeroSintoniza(), g2,
-                    (float) (47 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber), fontTypeNumberChannel);
+        	System.out.println("Canal al menor tamaño");
+        	fontTypeNumberChannel = new Font(SIBAToolKit.applicationPreference("FONT_NUMBER_CHANNEL"), Font.BOLD, (Integer.parseInt(SIBAToolKit.applicationPreference("FONT_SIZE_NUMBER_CHANNEL")) - 6 ));
+        	fitText(chnNumberToPaint, g2,
+                    (float) (50 - (justXChannelNumber * 0.70)), (float) (justXChannelNumber * 0.60),(float) (justYChannelNumber * 1.20), fontTypeNumberChannel);
         	
         }
         // se modifican las propiedades para el texto
