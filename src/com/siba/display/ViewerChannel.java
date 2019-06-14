@@ -105,7 +105,7 @@ public class ViewerChannel extends JLabel implements Runnable {
     public ViewerChannel(String customerCode, String fileFlagGeneral, String fileFlagPersonal) throws IOException {
         this.customerCode = customerCode;
         Color testc = new Color (0,0,0);
-        System.out.println(" El color ajustados es este: " + new Color (177,177,177).getRGB());
+        System.out.println(" El color ajustados es este: " + new Color (88,88,88).getRGB());
         System.out.println(" El color ajustados es este 2: " + testc.getRGB());
         System.out.println("1. File Flag General: " +fileFlagGeneral);
         System.out.println("2. File Flag Personal: " +fileFlagPersonal);

@@ -84,7 +84,7 @@ public class AppletChannelProgramation extends JApplet {
         AppletChannelProgramation applet = new AppletChannelProgramation();
         applet.init();
         fr.add(applet, BorderLayout.CENTER);
-        fr.setSize(637,220);
+        fr.setSize(1280,190);
         fr.setVisible(true);
     }
 

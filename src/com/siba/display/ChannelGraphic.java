@@ -360,10 +360,17 @@ public class ChannelGraphic {
         	fitText(chnNumberToPaint, g2,
                     (float) (47 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber), fontTypeNumberChannel);
         }
+        else if (chnNumberToPaint.length() == 3) {
+        	
+        	System.out.println("Canal al tamaño medio");
+        	fontTypeNumberChannel = new Font(SIBAToolKit.applicationPreference("FONT_NUMBER_CHANNEL"), Font.BOLD, (Integer.parseInt(SIBAToolKit.applicationPreference("FONT_SIZE_NUMBER_CHANNEL")) - 4 ));
+        	fitText(chnNumberToPaint, g2,
+                    (float) (47 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber * 1.15), fontTypeNumberChannel);
+        }
         else {
         	
         	System.out.println("Canal al menor tamaño");
-        	fontTypeNumberChannel = new Font(SIBAToolKit.applicationPreference("FONT_NUMBER_CHANNEL"), Font.BOLD, (Integer.parseInt(SIBAToolKit.applicationPreference("FONT_SIZE_NUMBER_CHANNEL")) - 6 ));
+        	fontTypeNumberChannel = new Font(SIBAToolKit.applicationPreference("FONT_NUMBER_CHANNEL"), Font.BOLD, (Integer.parseInt(SIBAToolKit.applicationPreference("FONT_SIZE_NUMBER_CHANNEL")) - 8 ));
         	fitText(chnNumberToPaint, g2,
                     (float) (50 - (justXChannelNumber * 0.70)), (float) (justXChannelNumber * 0.60),(float) (justYChannelNumber * 1.20), fontTypeNumberChannel);
         	
@@ -595,7 +602,7 @@ public class ChannelGraphic {
         g2.setColor(lineColor);
         //g2.draw(new Rectangle.Double(posX, 0, sideRectangle * MULT_RECTANGLE, sideRectangle));
         g2.setColor(Color.BLACK);
-        g2.drawString(">>>>", (int) (posX + 2), 9);
+        g2.drawString(">>", (int) (posX + 2), 9);
         g2.setFont(currentFont);
     }
 
@@ -608,7 +615,8 @@ public class ChannelGraphic {
         g2.getStroke();
         //g2.draw(new Rectangle.Double(posX, SIBAConst.CHANNEL_GRAPHIC_HEIGHT - sideRectangle, sideRectangle * MULT_RECTANGLE, sideRectangle));
         g2.setColor(Color.BLACK);
-        g2.drawString("<<", (int) (posX + 4), (int) (SIBAConst.CHANNEL_GRAPHIC_HEIGHT - 42));
+        //g2.drawString("<<", (int) (posX + 4), (int) (SIBAConst.CHANNEL_GRAPHIC_HEIGHT - 58));
+        g2.drawString("<<", (int) (posX + 4), (int) (9));
         g2.setFont(currentFont);
     }
 

@@ -38,7 +38,7 @@ public class SIBAConst {
     /**
      * Tama–o por defecto de un canal grafico
      */
-    public static final double CHANNEL_GRAPHIC_HEIGHT = 50.0;
+    public static final double CHANNEL_GRAPHIC_HEIGHT = 64.0;
 
 	/**
      * Retraso de tiempo que demora entre el cambio de programacion de un dia
@@ -48,7 +48,7 @@ public class SIBAConst {
     /**
      * Retraso de tiempo de moviento de la grilla (Valocidad de la grilla)
      */
-    public static final int DELAY_SCROLL = 80;
+    public static final int DELAY_SCROLL = 50;
 
     /**
      * Agente de tiempo que determina cada 5 minutos el cambio de programacion de acuerdo a la hora actual.
