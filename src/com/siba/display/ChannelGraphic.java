@@ -239,6 +239,7 @@ public class ChannelGraphic {
      */
     public void paintChannel(float initialHour, float endHour) throws NumberFormatException, IOException {
         double widthCell = getWidthCellForText(initialHour, endHour);
+        System.out.println("El ancho de la celda es: "+widthCell);
         double xSkeep;
         float dash[] = {4.0f};
         // alta calidad para los graficos 2D
@@ -351,28 +352,28 @@ public class ChannelGraphic {
         	//fitText(channel.getNumeroSintoniza(), g2,
             //    (float) (47 - (justXChannelNumber * 2)), (float)(justXChannelNumber * 2),(float) (justYChannelNumber), fontTypeNumberChannel);
         	System.out.println("Canal al tamaño grande");
-        	fitText(chnNumberToPaint, g2,(float) (47 - (justXChannelNumber * 2)), 
-        			(float)(justXChannelNumber * 2),(float) (justYChannelNumber), fontTypeNumberChannel);
+        	fitText(chnNumberToPaint, g2,(float) (70 - (justXChannelNumber * 1.5)), 
+        			(float)(justXChannelNumber * 1.5),(float) (justYChannelNumber), fontTypeNumberChannel);
         }	
         else if (chnNumberToPaint.length() == 2) {
         	
         	System.out.println("Canal al tamaño medio");
         	fitText(chnNumberToPaint, g2,
-                    (float) (47 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber), fontTypeNumberChannel);
+                    (float) (70 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber), fontTypeNumberChannel);
         }
         else if (chnNumberToPaint.length() == 3) {
         	
         	System.out.println("Canal al tamaño medio");
         	fontTypeNumberChannel = new Font(SIBAToolKit.applicationPreference("FONT_NUMBER_CHANNEL"), Font.BOLD, (Integer.parseInt(SIBAToolKit.applicationPreference("FONT_SIZE_NUMBER_CHANNEL")) - 4 ));
         	fitText(chnNumberToPaint, g2,
-                    (float) (47 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber * 1.15), fontTypeNumberChannel);
+                    (float) (70 - (justXChannelNumber)), (float) (justXChannelNumber),(float) (justYChannelNumber * 1.15), fontTypeNumberChannel);
         }
         else {
         	
         	System.out.println("Canal al menor tamaño");
         	fontTypeNumberChannel = new Font(SIBAToolKit.applicationPreference("FONT_NUMBER_CHANNEL"), Font.BOLD, (Integer.parseInt(SIBAToolKit.applicationPreference("FONT_SIZE_NUMBER_CHANNEL")) - 8 ));
         	fitText(chnNumberToPaint, g2,
-                    (float) (50 - (justXChannelNumber * 0.70)), (float) (justXChannelNumber * 0.60),(float) (justYChannelNumber * 1.20), fontTypeNumberChannel);
+                    (float) (70 - (justXChannelNumber * 0.70)), (float) (justXChannelNumber * 0.65),(float) (justYChannelNumber * 1.20), fontTypeNumberChannel);
         	
         }
         // se modifican las propiedades para el texto
@@ -383,17 +384,17 @@ public class ChannelGraphic {
         FontMetrics fm = g2.getFontMetrics();
         int strWidth = fm.stringWidth(channel.getNombre());
         System.out.println("El ancho de la cadena "+channel.getNombre()+" es: "+strWidth);
-        if (strWidth <= 70){
+        if (strWidth <= 120){
         	
         	System.out.println("Pintando para el canal "+channel.getNombre()+" con ajuste x4 en la vertical ");
         	fitText(channel.getNombre(), g2,
-                (float) (xSkeep - (justXChannelName / 2 ) - 47), 47, (float) ((justYChannelName * 4)), fontTypeChannel);
+                (float) (xSkeep - (justXChannelName / 2 ) - 70), 70, (float) ((justYChannelName * 4)), fontTypeChannel);
         }	
         else{
         	
         	System.out.println("Pintando para el canal "+channel.getNombre()+" sin ajsute en la vertical");
         	fitText(channel.getNombre(), g2,
-                (float) (xSkeep - (justXChannelName / 2 ) - 47), 47, (float) ((justYChannelName)), fontTypeChannel);
+                (float) (xSkeep - (justXChannelName / 2 ) - 70), 70, (float) ((justYChannelName)), fontTypeChannel);
         }
         // grafica las lineas de separacion
         //System.out.println(" El Color del scroll es: "+this.scrollBorders);
